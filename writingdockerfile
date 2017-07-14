@@ -1,0 +1,29 @@
+
+Sort multi-line arguments
+Sorting multiline arguments alphanumerically will help avoid duplication of packages and make the list much easier to update.
+
+RUN  yum update -y && \
+     yum install -y apache2 \
+                    git \
+                    java \
+                    python
+
+Avoid installing unnecessary packages
+In order to reduce complexity, dependencies, file sizes, and build times, avoid installing unnecessary packages.
+
+Minimize the number of layers / Consolidate instructions
+Each instruction in the Dockerfile adds an extra layer to the docker image. The number of instructions and layers should be kept to a minimum as this ultimately affects build performance and time.
+
+
+Containers should be immutable & ephemeral
+The container created with the image produced by Dockerfile should be ephemeral and immutable. In other words, the container should be destroyed and a new one built and put in place with an absolute minimum set-up and configuration.
+
+Build cache
+While building an image, Docker will step through the instructions mentioned in the Dockerfile, executing them in chronological order. As each instruction is examined Docker will look for an existing image layer in its cache that it can reuse, rather than creating a new image layer.
+
+Dockerfile for Development Environment
+For a development environment, map your source code on the host to a container using a volume. This enables to choose the editor of your choice on the host and test the application right away in the container. This is done by mounting the application build folder as a volume rather than copying the build artifact using the ADD command in the Dockerfile.
+
+https://github.com/FuriKuri/docker-best-practices
+
+http://docs.projectatomic.io/container-best-practices/#_clear_packaging_caches_and_temporary_package_downloads
