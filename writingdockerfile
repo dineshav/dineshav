@@ -27,3 +27,5 @@ For a development environment, map your source code on the host to a container u
 https://github.com/FuriKuri/docker-best-practices
 
 http://docs.projectatomic.io/container-best-practices/#_clear_packaging_caches_and_temporary_package_downloads
+
+http://ydevops.blogspot.in/2017/03/docker-interview-questions.html
